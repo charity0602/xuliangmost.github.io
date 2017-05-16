@@ -61,7 +61,10 @@
 		
 		//$("#div1").append('<br/><span class=sp'+sp+'></span>')
 		var time1=setInterval(function(){
-			if(shouWord[num]!=="#"){
+			if(!shouWord[num]){
+				clearInterval(time1)
+			 }
+			if(shouWord[num]!=="#"&&shouWord[num]){
 				if(shouWord[num]==="&"){
 					$('span').removeAttr("class")
 					$("#div1").append('<br/><span class=sp'+sp+'></span>')
@@ -69,6 +72,7 @@
 					$(".sp"+sp).html($(".sp"+sp).html()+shouWord[num])
 				}
 			}
+			
 			num++;
 		},350)
 
